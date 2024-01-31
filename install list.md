@@ -1,1 +1,3 @@
--mongodb
+- mongodb　mongodbのAPIを使うためのやつ
+- openai　openaiのAPIをつかうためのやつ
+- dotenv　環境変数をnode.jsで読み込むために必要らしい

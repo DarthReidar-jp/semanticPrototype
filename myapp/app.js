@@ -1,5 +1,6 @@
 // app.js
-
+// 環境変数をプロセスにロード
+require('dotenv').config();
 // 必要なモジュールをインポート
 var createError = require('http-errors'); // HTTP エラーの作成をサポートするモジュール
 var express = require('express'); // Express フレームワーク本体
