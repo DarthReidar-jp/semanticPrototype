@@ -1,46 +1,49 @@
 // app.js
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var memosRouter = require('./routes/memos');
+// 必要なモジュールをインポート
+var createError = require('http-errors'); // HTTP エラーの作成をサポートするモジュール
+var express = require('express'); // Express フレームワーク本体
+var path = require('path'); // ファイルパス操作のためのモジュール
+var cookieParser = require('cookie-parser'); // クッキーの解析をサポートするモジュール
+var logger = require('morgan'); // ログ出力をサポートするモジュール
 
-var app = express();
+// ルーターモジュールをインポート
+var indexRouter = require('./routes/index'); // ルートページ用ルーターモジュール
+var usersRouter = require('./routes/users'); // ユーザーページ用ルーターモジュール
+var memosRouter = require('./routes/memos'); // メモページ用ルーターモジュール
 
+var app = express(); // Express アプリケーションを作成
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// ビューエンジンの設定
+app.set('views', path.join(__dirname, 'views')); // ビューファイルの格納ディレクトリを設定
+app.set('view engine', 'pug'); // ビューエンジンを Pug に設定
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// ミドルウェアの設定
+app.use(logger('dev')); // ロギング用のミドルウェアを設定
+app.use(express.json()); // JSON リクエストボディの解析をサポート
+app.use(express.urlencoded({ extended: false })); // URL エンコードされたリクエストボディの解析をサポート
+app.use(cookieParser()); // クッキーの解析をサポート
+app.use(express.static(path.join(__dirname, 'public'))); // 静的ファイルの提供を設定
 
-// Router
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/memos', memosRouter);
+// ルーターの設定
+app.use('/', indexRouter); // ルートページ用ルーターを適用
+app.use('/users', usersRouter); // ユーザーページ用ルーターを適用
+app.use('/memos', memosRouter); // メモページ用ルーターを適用
 
-// catch 404 and forward to error handler
+// 404 エラーのハンドリング
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(createError(404)); // 404 エラーを生成して次のミドルウェアに渡す
 });
 
-// error handler
+// エラーハンドリング
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // ローカル変数を設定してエラーメッセージを表示
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  // エラーページを表示
+  res.status(err.status || 500); // エラーステータスを設定
+  res.render('error'); // エラービューを表示
 });
 
-module.exports = app;
+module.exports = app; // Express アプリケーションをエクスポート
