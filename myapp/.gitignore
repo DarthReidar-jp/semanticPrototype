@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+lib-cov
+coverage
+.nyc_output
+node_modules
+.jenkins
+
+# Debug logs
+debug.log
+
+# MongoDB data directory
+/data/db
