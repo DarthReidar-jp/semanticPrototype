@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Create a New Memo
+  form(method="POST", action="/memos")
+    div
+      label(for="title") Title:
+      input(type="text", id="title", name="title", required=true)
+    div
+      label(for="content") Content:
+      textarea(id="content", name="content", required=true)
+    div
+      button(type="submit") Submit
+
+  h1 Saved Memos
+  if memos.length
+    each memo in memos
+      div
+        h3= memo.title
+        p= memo.content
+  else
+    p No memos found
