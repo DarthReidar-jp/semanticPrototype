@@ -1,0 +1,23 @@
+{
+	"name": "Node.js & TypeScript",
+	// または、DockerfileまたはDocker Composeファイルを使用します。詳細情報: https://containers.dev/guide/dockerfile
+
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye"
+
+	// DevContainerの形式の詳細については、https://aka.ms/devcontainer.json を参照してください。設定オプションの詳細については、https://github.com/devcontainers/templates/tree/main/src/typescript-node のREADMEを参照してください。
+
+	// DevContainerに追加する機能。詳細情報: https://containers.dev/features.
+	// "features": {},
+
+	// コンテナ内のポートをローカルで利用可能にするには、'forwardPorts'を使用します。
+	// "forwardPorts": [],
+
+	// コンテナが作成された後にコマンドを実行するには、'postCreateCommand'を使用します。
+	// "postCreateCommand": "yarn install",
+
+	// ツール固有のプロパティを設定するには、'customizations'を使用します。
+	// "customizations": {},
+
+	// ルートとして接続する場合はコメントを解除します。詳細情報: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
