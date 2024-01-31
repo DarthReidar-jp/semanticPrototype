@@ -30,5 +30,11 @@ block content
                   .card-body
                     h5.card-title= memo.title
                     p.card-text= memo.content
+                    // 削除ボタン
+                    form(method="POST", action="/memos/delete/" + memo._id.toString())
+                      input(type="hidden", name="_method", value="DELETE")
+                      button.btn.btn-danger(type="submit") Delete
+
+                    // 更新ボタン
             if !memos.length 
               p.card-text No memos found

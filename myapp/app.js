@@ -7,6 +7,7 @@ var express = require('express'); // Express フレームワーク本体
 var path = require('path'); // ファイルパス操作のためのモジュール
 var cookieParser = require('cookie-parser'); // クッキーの解析をサポートするモジュール
 var logger = require('morgan'); // ログ出力をサポートするモジュール
+var methodOverride = require('method-override'); // method-override モジュールのインポート
 
 // ルーターモジュールをインポート
 var indexRouter = require('./routes/index'); // ルートページ用ルーターモジュール
@@ -25,6 +26,10 @@ app.use(express.json()); // JSON リクエストボディの解析をサポー�
 app.use(express.urlencoded({ extended: false })); // URL エンコードされたリクエストボディの解析をサポート
 app.use(cookieParser()); // クッキーの解析をサポート
 app.use(express.static(path.join(__dirname, 'public'))); // 静的ファイルの提供を設定
+// method-override ミドルウェアの設定
+// ここでは _method キーを使用してオーバーライドを行います
+app.use(methodOverride('_method'));
+
 
 // ルーターの設定
 app.use('/', indexRouter); // ルートページ用ルーターを適用

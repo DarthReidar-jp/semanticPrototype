@@ -1,3 +1,4 @@
 - mongodb　mongodbのAPIを使うためのやつ
 - openai　openaiのAPIをつかうためのやつ
 - dotenv　環境変数をnode.jsで読み込むために必要らしい
+- method-override  これは、フォームからの DELETE リクエストを処理するために必要
