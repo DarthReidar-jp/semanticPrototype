@@ -13,6 +13,7 @@ var methodOverride = require('method-override'); // method-override モジュー
 var indexRouter = require('./routes/index'); // ルートページ用ルーターモジュール
 var usersRouter = require('./routes/users'); // ユーザーページ用ルーターモジュール
 var memosRouter = require('./routes/memos'); // メモページ用ルーターモジュール
+var searchRouter = require('./routes/search'); // 検索用ルーターモジュール
 
 var app = express(); // Express アプリケーションを作成
 
@@ -35,6 +36,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter); // ルートページ用ルーターを適用
 app.use('/users', usersRouter); // ユーザーページ用ルーターを適用
 app.use('/memos', memosRouter); // メモページ用ルーターを適用
+app.use('/search', searchRouter); // 検索ルートをマウント
 
 // 404 エラーのハンドリング
 app.use(function(req, res, next) {

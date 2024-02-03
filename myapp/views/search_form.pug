@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 Search Memos
+  form(method="GET", action="/search/result")
+    .form-group
+      input.form-control(type="text", name="query", placeholder="Search for memos...")
+      button.btn.btn-primary(type="submit") Search
