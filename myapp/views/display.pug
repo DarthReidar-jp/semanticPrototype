@@ -34,6 +34,8 @@ block content
                   .card-body
                     h5.card-title= memo.title
                     p.card-text.flex-fill(style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;')= memo.content
+                    if memo.score 
+                      p.card-text Score: #{memo.score.toFixed(2)} // スコアを表示
                     a.stretched-link(href=`/detail/${memo._id}`)
           else
             .col-12

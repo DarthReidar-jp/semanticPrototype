@@ -2,12 +2,19 @@
 extends layout
 
 block content
-  h1 Create New Memo
-  form(method="POST", action="/create")
-    .form-group
-      label(for="title") Title
-      input.form-control(type="text", id="title", name="title", required=true)
-    .form-group
-      label(for="content") Content
-      textarea.form-control(id="content", name="content", required=true, rows="4", maxlength="500")
-    button.btn.btn-primary(type="submit") Submit
+  .container.mt-5
+    .row.justify-content-center
+      .col-lg-8
+        .card
+          .card-header
+            h3.text-center Create New Memo
+          .card-body
+            form(method="POST", action="/create")
+              .form-group
+                label(for="title") Title
+                input.form-control(type="text", id="title", name="title", required=true)
+              .form-group
+                label(for="content") Content
+                textarea.form-control(id="content", name="content", required=true, rows="4", maxlength="500")
+              .text-right
+                button.btn.btn-success(type="submit") Submit

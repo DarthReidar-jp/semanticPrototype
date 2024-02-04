@@ -2,28 +2,37 @@
 extends layout
 
 block content
-  .container
-    h1= memo.title
-    p= memo.content
+  .container.mt-5
+    .row.justify-content-center
+      .col-lg-8
+        .card
+          .card-body
+            h3.card-title= memo.title
+            p.card-text= memo.content
 
-    a.btn.btn-primary(href='/display') Back to Display
-    a.btn.btn-secondary(href='/create') Create New Memo
+            // アクションボタン群
+            .d-flex.justify-content-between.mt-4
+              a.btn.btn-outline-primary(href='/display') Back to Display
+              a.btn.btn-outline-secondary(href='/create') Create New Memo
 
-    // メモのタイトルとコンテンツの編集フォーム
-    h2 Edit Memo
-    form(method="POST", action=`/detail/edit/${memo._id}`)
-      .form-group
-        label(for="title") Title
-        input.form-control(type="text", name="title", value=memo.title, required=true)
-      .form-group
-        label(for="content") Content
-        textarea.form-control(name="content", required=true, maxlength="140", rows="4")= memo.content
-      button.btn.btn-success(type="submit") Update
+            // メモの編集フォーム
+            h4.mt-5 Edit Memo
+            form(method="POST", action=`/detail/edit/${memo._id}`)
+              .form-group
+                label(for="title") Title
+                input.form-control(type="text", name="title", value=memo.title, required=true)
+              .form-group
+                label(for="content") Content
+                textarea.form-control(name="content", required=true, maxlength="500", rows="4")= memo.content
+              .d-flex.justify-content-end
+                button.btn.btn-success(type="submit") Update
+            
+            // 再エンベディングボタン
+            //.d-flex.justify-content-end.mt-3
+              form(method="POST", action=`/detail/reembed/${memo._id}`)
+                button.btn.btn-info(type="submit") Re-embed
 
-    // 再エンベディングボタン
-    form(method="POST", action=`/detail/reembed/${memo._id}`)
-      button.btn.btn-info(type="submit") Re-embed
-    // メモの削除ボタン
-    h2 Delete Memo
-    form(method="POST", action=`/detail/delete/${memo._id}`)
-      button.btn.btn-danger(type="submit") Delete
+            // メモの削除ボタン
+            .d-flex.justify-content-end.mt-3
+              form(method="POST", action=`/detail/delete/${memo._id}`)
+                button.btn.btn-danger(type="submit") Delete

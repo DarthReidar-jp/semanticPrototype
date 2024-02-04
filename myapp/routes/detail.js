@@ -17,15 +17,20 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// メモの編集を処理
+// メモの編集とエンベディングの更新を処理
 router.post('/edit/:id', async (req, res) => {
     const { title, content } = req.body;
     try {
         const db = await connectDB();
         const collection = db.collection('memos');
+
+        // エンベディングを取得
+        const vector = await getMemoVector(content);
+
+        // メモのタイトル、コンテンツ、およびエンベディングを更新
         await collection.updateOne(
             { _id: new ObjectId(req.params.id) },
-            { $set: { title, content } }
+            { $set: { title, content, vector } }
         );
         res.redirect(`/detail/${req.params.id}`);
     } catch (e) {
@@ -33,7 +38,7 @@ router.post('/edit/:id', async (req, res) => {
     }
 });
 
-// メモの再エンベディングを処理
+/** メモの再エンベディングを処理
 router.post('/reembed/:id', async (req, res) => {
     try {
         const db = await connectDB();
@@ -48,7 +53,7 @@ router.post('/reembed/:id', async (req, res) => {
     } catch (e) {
         res.status(500).send(e.toString());
     }
-});
+});*/ 
 
 //削除
 router.post('/delete/:id', async (req, res) => {
