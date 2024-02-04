@@ -1,0 +1,77 @@
+/* 基本的なリセットとフォント設定 */
+body, h1, h2, h3, p, form, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* ヘッダースタイル */
+  header {
+    background-color: #767676;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  /* 検索フォームスタイル */
+  .search-form .form-control {
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #ced4da;
+  }
+  
+  .search-form .btn-primary {
+    border-radius: 0 20px 20px 0;
+    border-color: #3e3f3f;
+    background-color: #9f9f9f;
+    color: #ffffff;
+  }
+  
+  /* サイドバーのスタイル */
+  .sidebar {
+    background-color: #ababab;
+    padding: 20px;
+  }
+  
+  .sidebar-content {
+    position: sticky;
+    top: 20px;
+  }
+  
+  /* メインコンテンツのスタイル */
+  .main-content {
+    padding: 20px;
+  }
+  
+  /* カードスタイル */
+  .card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-radius: 10px; /* カードの角を丸く */
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-title {
+    font-size: 18px; /* タイトルのフォントサイズ */
+    margin-bottom: 15px; /* タイトルとテキストの間隔 */
+  }
+  
+  .card-text {
+    font-size: 14px; /* テキストのフォントサイズ */
+    color: #333; /* テキストの色 */
+  }
+  
+  /* スコア表示のスタイル */
+  .card-text.score {
+    font-weight: bold;
+    color: #007bff; /* スコアの色 */
+  }
+  
+  /* 必要に応じて追加のスタイル */
+  

@@ -94,7 +94,7 @@ router.get('/search', async (req, res) => {
           }
         ];
         const result = await collection.aggregate(agg).toArray();
-        res.render('search', { memos: result }); // 結果を表示画面に再利用
+        res.render('display', { memos: result }); // 結果を表示画面に再利用
     } catch (e) {
         res.status(500).send(e.toString());
     }
