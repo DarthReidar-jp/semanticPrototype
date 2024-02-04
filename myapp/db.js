@@ -7,7 +7,7 @@ let dbInstance = null; // dbInstance を初期化する
 
 // MongoDB データベースへの接続を管理する関数
 async function connectDB() {
-  console.log(dbInstance); // 現在の dbInstance の状態をログに出力
+  //console.log(dbInstance); // 現在の dbInstance の状態をログに出力
 
   // 既に接続が確立されている場合、既存の接続を再利用
   if (dbInstance) {
@@ -20,7 +20,7 @@ async function connectDB() {
 
     // 接続が成功した場合、データベース名 "knowledge" を指定して dbInstance を設定
     dbInstance = client.db("knowledge");
-    console.log(dbInstance); // 接続成功時に dbInstance の状態をログに出力
+    //console.log(dbInstance); // 接続成功時に dbInstance の状態をログに出力
     return dbInstance; // dbInstance を返してアプリケーション内で使用可能にする
   } catch (error) {
     // エラーハンドリング: 接続中にエラーが発生した場合

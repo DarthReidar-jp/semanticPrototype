@@ -57,7 +57,7 @@ router.post('/delete/:id', async (req, res) => {
       const db = await connectDB();
       const collection = db.collection('memos');
       await collection.deleteOne({ _id: new ObjectId(req.params.id) });
-      res.redirect('/memos');
+      res.redirect('/display');
     } catch (e) {
       console.error('削除中のエラー:', e); // エラー発生時のログを出力
       res.status(500).send(e.toString());

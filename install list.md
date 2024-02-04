@@ -3,3 +3,4 @@
 - openai　openaiのAPIをつかうためのやつ
 - dotenv　環境変数をnode.jsで読み込むために必要らしい
 - method-override  これは、フォームからの DELETE リクエストを処理するために必要
+- multer Jsonファイルアップロードを受け付けるために必要なミドルウェア
