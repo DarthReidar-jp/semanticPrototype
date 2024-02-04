@@ -1,0 +1,25 @@
+//- views/detail.pug
+extends layout
+
+block content
+  .container
+    h1= memo.title
+    p= memo.content
+
+    a.btn.btn-primary(href='/display') Back to Display
+    a.btn.btn-secondary(href='/create') Create New Memo
+
+    // メモのタイトルとコンテンツの編集フォーム
+    h2 Edit Memo
+    form(method="POST", action=`/detail/edit/${memo._id}`)
+      .form-group
+        label(for="title") Title
+        input.form-control(type="text", name="title", value=memo.title, required=true)
+      .form-group
+        label(for="content") Content
+        textarea.form-control(name="content", required=true, maxlength="140", rows="4")= memo.content
+      button.btn.btn-success(type="submit") Update
+
+    // 再エンベディングボタン
+    form(method="POST", action=`/detail/reembed/${memo._id}`)
+      button.btn.btn-info(type="submit") Re-embed

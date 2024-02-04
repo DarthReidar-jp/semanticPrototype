@@ -1,0 +1,27 @@
+//- views/display.pug
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Display Memos
+        a.btn.btn-primary(href='/create') Create New Memo
+
+        h2 Search Memos
+        form(method="GET", action="/display/search")
+          .form-group
+            input.form-control(type="text", name="query", placeholder="Enter search query...")
+            button.btn.btn-primary(type="submit") Search
+
+        if memos.length
+          .d-flex.flex-wrap
+            each memo in memos
+              //- メモカード全体をリンクとして設定
+              a(href=`/detail/${memo._id}`).card.mb-3.mx-2(style='width: 18rem; cursor: pointer;')
+                .card-body
+                  h5.card-title= memo.title
+                  //- はみ出るテキストを非表示にするスタイル
+                  p.card-text(style='white-space: nowrap; overflow: hidden; text-overflow: ellipsis;')= memo.content
+        else
+          p No memos found.
