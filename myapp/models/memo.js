@@ -3,6 +3,7 @@ class Memo {
       this.title = title;
       this.content = content;
       this.vector = vector;
+      this.folderIds = folderIds || [];
     }
   }
   
