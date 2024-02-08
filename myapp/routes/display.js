@@ -9,7 +9,6 @@ const { getQueryVector } = require('../utils/openaiUtils');
 const { getMemoVector } = require('../utils/openaiUtils');
 
 // 表示画面（メモ一覧と検索機能）
-// メインページのルート (例)
 router.get('/', async (req, res) => {
   try {
     const db = await connectDB();
@@ -23,7 +22,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-const upload = multer({ dest: 'uploads/' }); // アップロードされたファイルを一時的に保存するディレクトリ
+//Jsonインポート機能
+// アップロードされたファイルを一時的に保存するディレクトリ
+const upload = multer({ dest: 'uploads/' }); 
 // JSONインポート機能のルート
 router.post('/import', upload.single('jsonFile'), async (req, res) => {
     try {
@@ -111,9 +112,9 @@ router.post('/folders', async (req, res) => {
     const { name, memoIds } = req.body;
 
     // リクエストデータの検証
-    if (!name || !Array.isArray(memoIds) || memoIds.length === 0) {
-      return res.status(400).send({ message: 'Invalid request data. Name and memoIds are required.' });
-    }
+    //if (!name || !Array.isArray(memoIds) || memoIds.length === 0) {
+    //  return res.status(400).send({ message: 'Invalid request data. Name and memoIds are required.' });
+    //}
 
     const db = await connectDB();
     const foldersCollection = db.collection('folders');
@@ -128,7 +129,6 @@ router.post('/folders', async (req, res) => {
     await Promise.all(memoIds.map(memoId =>
       memosCollection.updateOne({ _id: new ObjectId(memoId) }, { $push: { folderIds: folderId.toString() } })
     ));
-
 
     res.status(201).send({ message: 'Folder created successfully', folderId: folderId });
   } catch (e) {
