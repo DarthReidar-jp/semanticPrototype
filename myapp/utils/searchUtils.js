@@ -16,11 +16,11 @@ async function performVectorSearch(query) {
             }
         },
         {
-            '$project': {
-                'title': 1,
-                'content': 1,
-                'score': { '$meta': 'vectorSearchScore' }
-            }
+                        '$project': {
+                            'title': 1,
+                            'content': 1,
+                            'score': { '$meta': 'vectorSearchScore' }
+                        }
         },
         {
             '$match': {

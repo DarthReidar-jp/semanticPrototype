@@ -18,6 +18,7 @@ var displayMemos = require('./routes/displayMemos');
 var importMemos = require('./routes/importMemos');
 var searchMemos = require('./routes/searchMemos');
 var folders = require('./routes/folders');
+var treeSearchMemos = require('./routes/treeSearchMemos')
 
 var app = express(); // Express アプリケーションを作成
 
@@ -45,6 +46,7 @@ app.use('/display', displayMemos);
 app.use('/import', importMemos);
 app.use('/search', searchMemos);
 app.use('/folders', folders);
+app.use('/treeSearch', treeSearchMemos);
 
 // 404 エラーのハンドリング
 app.use(function(req, res, next) {
