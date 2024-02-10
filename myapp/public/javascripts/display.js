@@ -7,7 +7,7 @@ function addAllMemosToFolder() {
       return; // フォルダ名が入力されなかった場合は処理を終了
     } 
   
-    fetch('/display/folders', { // URLを正しいパスに更新
+    fetch('/folders', { // URLを正しいパスに更新
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

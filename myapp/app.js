@@ -12,9 +12,12 @@ var methodOverride = require('method-override'); // method-override モジュー
 // ルーターモジュールをインポート
 var indexRouter = require('./routes/index'); // ルートページ用ルーターモジュール
 var usersRouter = require('./routes/users'); // ユーザーページ用ルーターモジュール
-var displayRouter = require('./routes/display');
 var createRouter = require('./routes/create');
 var detailRouter = require('./routes/detail');
+var displayMemos = require('./routes/displayMemos');
+var importMemos = require('./routes/importMemos');
+var searchMemos = require('./routes/searchMemos');
+var folders = require('./routes/folders');
 
 var app = express(); // Express アプリケーションを作成
 
@@ -36,9 +39,12 @@ app.use(methodOverride('_method'));
 // ルーターの設定
 app.use('/', indexRouter); // ルートページ用ルーターを適用
 app.use('/users', usersRouter); // ユーザーページ用ルーターを適用
-app.use('/display', displayRouter);
 app.use('/create', createRouter);
 app.use('/detail', detailRouter);
+app.use('/display', displayMemos);
+app.use('/import', importMemos);
+app.use('/search', searchMemos);
+app.use('/folders', folders);
 
 // 404 エラーのハンドリング
 app.use(function(req, res, next) {

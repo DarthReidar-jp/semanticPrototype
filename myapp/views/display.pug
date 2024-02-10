@@ -9,7 +9,7 @@ html
     header
       .container.row
         a.col-2.btn.btn-success(href='/create') New Memo
-        form.col-8.search-form(method="GET", action="/display/search")
+        form.col-8.search-form(method="GET", action="/search")
           .input-group
             input.form-control(type="text", name="query", placeholder="Search memos...")
             .input-group-append
@@ -28,13 +28,13 @@ html
               if folders && folders.length > 0
                 each folder in folders
                   li.list-group-item
-                    a(href=`/display/folders/${folder._id}`) #{folder.name}
+                    a(href=`/folders/${folder._id}`) #{folder.name}
               else
                 li.list-group-item フォルダがありません
 
             // JSONインポートフォーム
             h2 Import Memos
-            form(method="POST", action="/display/import", enctype="multipart/form-data")
+            form(method="POST", action="/import", enctype="multipart/form-data")
               .form-group
                 input.form-control(type="file", name="jsonFile", accept=".json")
               button.btn.btn-primary(type="submit") Import
