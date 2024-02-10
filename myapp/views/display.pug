@@ -47,15 +47,15 @@ html
               .row
                 if memos.length
                   each memo in memos
-                    .memo(data-memo-id=memo._id)
                     .col-lg-3.col-md-4.col-sm-6.mb-4
-                      .card.h-100.d-flex.flex-column
-                        .card-body
-                          h5.card-title= memo.title
-                          p.card-text.flex-fill(style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;')= memo.content
-                          if memo.score 
-                            p.card-text Score: #{memo.score.toFixed(5)}
-                          a.stretched-link(href=`/detail/${memo._id}`)
+                      .memo(data-memo-id=memo._id)
+                        .card.h-100.d-flex.flex-column
+                          .card-body
+                            h5.card-title= memo.title
+                            p.card-text.flex-fill(style='overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;')= memo.content
+                            if memo.score 
+                              p.card-text Score: #{memo.score.toFixed(5)}
+                            a.stretched-link(href=`/detail/${memo._id}`)
                 else
                   .col-12
                     p No memos found.
