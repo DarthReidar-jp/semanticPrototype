@@ -1,8 +1,9 @@
 function addAllMemosToFolder() {
     const memoElements = document.querySelectorAll('.memo');
+    console.log(memoElements);
     const memoIds = Array.from(memoElements).map(el => el.dataset.memoId);
     const folderName = prompt("Enter the name for the new folder:");
-  
+    console.log(memoIds);
     if (!folderName) {
       return; // フォルダ名が入力されなかった場合は処理を終了
     } 

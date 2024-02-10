@@ -47,6 +47,7 @@ html
               .row
                 if memos.length
                   each memo in memos
+                    .memo(data-memo-id=memo._id)
                     .col-lg-3.col-md-4.col-sm-6.mb-4
                       .card.h-100.d-flex.flex-column
                         .card-body

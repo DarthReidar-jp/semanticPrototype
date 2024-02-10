@@ -6,6 +6,7 @@ const { ObjectId } = require('mongodb');
 
 // フォルダ作成エンドポイント
 router.post('/', async (req, res) => {
+    console.log("Received request data:", req.body); // リクエストボディの内容をログ出力
     try {
       const { name, memoIds } = req.body;
   

@@ -2,7 +2,7 @@ class Folder {
     constructor(name, description, memoIds) {
         this.name = name;
         this.description = description || '';
-        this.memoIds = memoIds || [];
+        this.memoIds = memoIds;
     }
 }
 
