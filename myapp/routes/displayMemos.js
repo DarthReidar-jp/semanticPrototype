@@ -1,22 +1,17 @@
-// routes/display.js
+// routes/displayMemos.js
 const express = require('express');
 const router = express.Router();
-const { connectDB } = require('../db');
+const { getAllFoldersAndMemos } = require('../utils/dataFetchUtils');
 
-
-// 表示画面（メモ一覧と検索機能）
+// 表示画面（メモ一覧）
 router.get('/', async (req, res) => {
   try {
-    const db = await connectDB();
-    const foldersCollection = db.collection('folders');
-    const folders = await foldersCollection.find({}).toArray();
-    const memosCollection = db.collection('memos');
-    const memos = await memosCollection.find({}).toArray();
+    const { folders, memos } = await getAllFoldersAndMemos();
     res.render('display', { folders, memos }); // フォルダとメモのデータを渡す
   } catch (e) {
     res.status(500).send(e.toString());
   }
 });
 
-
 module.exports = router;
+

@@ -11,7 +11,7 @@ async function connectDB() {
 
   // 既に接続が確立されている場合、既存の接続を再利用
   if (dbInstance) {
-    return dbInstance;
+    return dbInstance;            
   }
 
   try {

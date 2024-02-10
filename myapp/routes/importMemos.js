@@ -3,8 +3,8 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const router = express.Router();
-const { connectDB } = require('../db');
 const { getMemoVector } = require('../utils/openaiUtils');
+const { getDBCollection } = require('../utils/dbUtils');
 
 //Jsonインポート機能
 // アップロードされたファイルを一時的に保存するディレクトリ
@@ -12,8 +12,7 @@ const upload = multer({ dest: 'uploads/' });
 // JSONインポート機能のルート
 router.post('/', upload.single('jsonFile'), async (req, res) => {
     try {
-      const db = await connectDB();
-      const collection = db.collection('memos');
+      const collection = await getDBCollection('memos');
       const fileData = fs.readFileSync(req.file.path);
       const memos = JSON.parse(fileData);
   

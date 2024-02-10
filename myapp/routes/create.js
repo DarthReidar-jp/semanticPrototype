@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Memo = require('../models/memo');
 const { connectDB } = require('../db');
+const { getDBCollection } = require('../utils/dbUtils');
 const { getMemoVector } = require('../utils/openaiUtils');
 
 // 新規作成画面
@@ -16,9 +17,7 @@ router.post('/', async (req, res) => {
         const { title, content } = req.body;
         const vector = await getMemoVector(content);
         const memo = new Memo( title, content, vector );
-
-        const db = await connectDB();
-        const collection = db.collection('memos');
+        const collection = await getDBCollection('memos');
         await collection.insertOne(memo);
         res.redirect('/display'); // 作成後は表示画面にリダイレクト
     } catch (e) {

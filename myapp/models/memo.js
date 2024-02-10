@@ -1,11 +1,11 @@
 class Memo {
-    constructor(title, content,vector) {
+  
+  constructor(title, content, vector, folderIds = []) {
       this.title = title;
       this.content = content;
       this.vector = vector;
-      this.folderIds = folderIds || [];
+      this.folderIds = folderIds;
+  
     }
-  }
-  
-  module.exports = Memo;
-  
+}
+module.exports = Memo;

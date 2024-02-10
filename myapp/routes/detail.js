@@ -1,15 +1,14 @@
 // routes/detail.js
 const express = require('express');
 const router = express.Router();
-const { connectDB } = require('../db');
 const { ObjectId } = require('mongodb');
 const { getMemoVector } = require('../utils/openaiUtils');
+const { getDBCollection } = require('../utils/dbUtils');
 
 // メモの詳細を表示
 router.get('/:id', async (req, res) => {
     try {
-        const db = await connectDB();
-        const collection = db.collection('memos');
+        const collection = await getDBCollection('memos');
         const memo = await collection.findOne({ _id: new ObjectId(req.params.id) });
         res.render('detail', { memo });
     } catch (e) {
@@ -21,8 +20,7 @@ router.get('/:id', async (req, res) => {
 router.post('/edit/:id', async (req, res) => {
     const { title, content } = req.body;
     try {
-        const db = await connectDB();
-        const collection = db.collection('memos');
+        const collection = await getDBCollection('memos');
 
         // エンベディングを取得
         const vector = await getMemoVector(content);
@@ -59,8 +57,7 @@ router.post('/reembed/:id', async (req, res) => {
 router.post('/delete/:id', async (req, res) => {
     try {
       console.log('削除リクエスト受信:', req.params.id); // デバッグ: リクエストIDのログを出力
-      const db = await connectDB();
-      const collection = db.collection('memos');
+      const collection = await getDBCollection('memos');
       await collection.deleteOne({ _id: new ObjectId(req.params.id) });
       res.redirect('/display');
     } catch (e) {
