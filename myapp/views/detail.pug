@@ -1,38 +1,37 @@
 //- views/detail.pug
-extends layout
-
-block content
+doctype html
+html
+  head
+    title= title
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/detail.css')
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous")
+    script(src="/javascripts/detail.js")
+  body
+  // アクションボタン群
+  .d-flex.justify-content-between.mt-4
+    a.btn.btn-outline-primary(href='/display') Back to Display
+    a.btn.btn-outline-secondary(href='/create') Create New Memo
+    form(method="POST", action=`/detail/delete/${memo._id}`)
+      button.btn.btn-danger(type="submit") Delete
+    // 再エンベディングボタン
+    //.d-flex.justify-content-end.mt-3
+      form(method="POST", action=`/detail/reembed/${memo._id}`)
+        button.btn.btn-info(type="submit") Re-embed
   .container.mt-5
     .row.justify-content-center
       .col-lg-8
         .card
           .card-body
-            h3.card-title= memo.title
-            p.card-text= memo.content
-
-            // アクションボタン群
-            .d-flex.justify-content-between.mt-4
-              a.btn.btn-outline-primary(href='/display') Back to Display
-              a.btn.btn-outline-secondary(href='/create') Create New Memo
-
-            // メモの編集フォーム
-            h4.mt-5 Edit Memo
-            form(method="POST", action=`/detail/edit/${memo._id}`)
-              .form-group
-                label(for="title") Title
-                input.form-control(type="text", name="title", value=memo.title, required=true)
-              .form-group
-                label(for="content") Content
-                textarea.form-control(name="content", required=true, maxlength="500", rows="4")= memo.content
-              .d-flex.justify-content-end
+              form(method="POST",action=`/detail/edit/${memo._id}`)
+                .form-group.mb-4
+                  input.title(type="text", name="title",value=memo.title, required=true,autofocus)
+                .form-group.mb-3
+                  textarea.content(type="text", name="content",required=true)
+                    |#{memo.content}
                 button.btn.btn-success(type="submit") Update
             
-            // 再エンベディングボタン
-            //.d-flex.justify-content-end.mt-3
-              form(method="POST", action=`/detail/reembed/${memo._id}`)
-                button.btn.btn-info(type="submit") Re-embed
 
-            // メモの削除ボタン
-            .d-flex.justify-content-end.mt-3
-              form(method="POST", action=`/detail/delete/${memo._id}`)
-                button.btn.btn-danger(type="submit") Delete
+
+

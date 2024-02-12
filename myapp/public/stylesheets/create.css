@@ -1,0 +1,54 @@
+body {
+    background-color: #e1e1e1; /* 背景を灰色に設定 */
+  }
+  
+  .card {
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+
+  .title.content{
+    animation: none;
+  }
+
+  
+  
+  .title{
+    border: none; /* 入力フォームのボーダーを無くす */
+    box-shadow: none; /* フォーム選択時のボーダーを消す */
+    font-size: 35px;
+    width: 100%;
+    outline: none;
+  }
+  
+  .content {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+    font-size: 22px;
+    color:#646464;
+    width: 100%;
+  }
+  
+  .form-control-lg {
+    font-size: 1.5rem; /* h2サイズに近い */
+  }
+  
+  .form-control-md {
+    font-size: 1rem; /* 標準的なテキストサイズ */
+    resize: none; /* ユーザーによるリサイズを無効にする */
+  }
+  
+  .btn-success {
+    background-color: #4CAF50; /* ボタンの色を変更 */
+    border: none; /* ボタンのボーダーを無くす */
+  }
+  
+  .float-right {
+    float: right; /* 送信ボタンを右寄せにする */
+    margin-top: 10px;
+  }
+  
