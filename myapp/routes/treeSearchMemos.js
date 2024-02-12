@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
 
     try {
         const result = await performVectorSearchTree(query);
+        //console.log('Search Tree Result:', result);
         res.render('treeSearchDisplay', { memos: result }); // 結果を表示画面に再利用
     } catch (e) {
         res.status(500).send(e.toString());

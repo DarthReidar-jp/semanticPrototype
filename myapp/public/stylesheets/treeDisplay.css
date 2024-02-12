@@ -1,0 +1,34 @@
+/* 階層ごとのスタイリング */
+.memo-card {
+    border-left: solid 4px #ddd; /* 各メモの左側にボーダーを追加 */
+    margin-bottom: 10px; /* メモ間の余白 */
+    width: 200px;
+  }
+  
+  /* 各階層のインデント量と背景色 */
+  .level-0 { background-color: #f8d7da; }
+  .level-1 { background-color: #d1ecf1; margin-left: 30px; }
+  .level-2 { background-color: #d4edda; margin-left: 60px; }
+  .level-3 { background-color: #fff3cd; margin-left: 90px; }
+  .level-4 { background-color: #d3d3d3; margin-left: 120px; }
+  
+  /* タイトルとテキストのスタイリング */
+  .card-title {
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 0.9em;
+  }
+  
+  /* リンクをカード全体に拡張 */
+  .stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+  }
+  
