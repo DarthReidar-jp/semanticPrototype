@@ -12,13 +12,13 @@ var methodOverride = require('method-override'); // method-override モジュー
 // ルーターモジュールをインポート
 var indexRouter = require('./routes/index'); // ルートページ用ルーターモジュール
 var usersRouter = require('./routes/users'); // ユーザーページ用ルーターモジュール
-var createRouter = require('./routes/create');
-var detailRouter = require('./routes/detail');
 var displayMemos = require('./routes/displayMemos');
 var importMemos = require('./routes/importMemos');
 var searchMemos = require('./routes/searchMemos');
-var folders = require('./routes/folders');
 var treeSearchMemos = require('./routes/treeSearchMemos')
+var folders = require('./routes/folders');
+var createRouter = require('./routes/create');
+var detailRouter = require('./routes/detail');
 
 var app = express(); // Express アプリケーションを作成
 
@@ -32,21 +32,18 @@ app.use(express.json()); // JSON リクエストボディの解析をサポー�
 app.use(express.urlencoded({ extended: false })); // URL エンコードされたリクエストボディの解析をサポート
 app.use(cookieParser()); // クッキーの解析をサポート
 app.use(express.static(path.join(__dirname, 'public'))); // 静的ファイルの提供を設定
-// method-override ミドルウェアの設定
-// ここでは _method キーを使用してオーバーライドを行います
-app.use(methodOverride('_method'));
-
+app.use(methodOverride('_method'));// method-override ミドルウェアの設定ここでは _method キーを使用してオーバーライドを行います
 
 // ルーターの設定
 app.use('/', indexRouter); // ルートページ用ルーターを適用
 app.use('/users', usersRouter); // ユーザーページ用ルーターを適用
-app.use('/create', createRouter);
-app.use('/detail', detailRouter);
 app.use('/display', displayMemos);
 app.use('/import', importMemos);
-app.use('/search', searchMemos);
 app.use('/folders', folders);
+app.use('/search', searchMemos);
 app.use('/treeSearch', treeSearchMemos);
+app.use('/create', createRouter);
+app.use('/detail', detailRouter);
 
 // 404 エラーのハンドリング
 app.use(function(req, res, next) {

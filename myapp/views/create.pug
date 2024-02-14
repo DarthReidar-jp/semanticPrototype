@@ -3,27 +3,23 @@ html
   head
     title= title
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/display.css')
     link(rel='stylesheet', href='/stylesheets/create.css')
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous")
     script(src="/javascripts/create.js")
   body
-  header
-    .container.row
-      a.col-2.btn.btn-success(href='/create') New Memo
-      form.col-8.search-form(method="GET", action="/search")
-        .input-group
-          input.form-control(type="text", name="query", placeholder="Search memos...")
-          .input-group-append
-            button.btn.btn-primary(type="submit") Search
+    header
+      .container.row
+        a.col-2.btn.btn-success(href='/display') Back
  
     .container.mt-5
       .row.justify-content-center
-        .col-lg-8
+        .col-lg-8 
           .card.p-3
             .card-body
               form(method="POST",action="/create")
-                .form-group.mb-4
+                .form-group.mb-3
                   input.title(type="text", name="title",placeholder="", required=true,autofocus)
                 .form-group.mb-3.d-none
                   textarea.content(type="text", name="content", placeholder="", required=true)
