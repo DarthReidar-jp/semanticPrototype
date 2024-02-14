@@ -19,7 +19,7 @@ async function connectDB() {
     await client.connect();
 
     // 接続が成功した場合、データベース名 "knowledge" を指定して dbInstance を設定
-    dbInstance = client.db("knowledge");
+    dbInstance = client.db("xr-knowledge-base");
     //console.log(dbInstance); // 接続成功時に dbInstance の状態をログに出力
     return dbInstance; // dbInstance を返してアプリケーション内で使用可能にする
   } catch (error) {
