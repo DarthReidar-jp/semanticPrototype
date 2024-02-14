@@ -11,7 +11,7 @@ html
   body
     header
       .container.row
-        a.col-2.btn.btn-success(href='/display') Back
+        a.col-2.custom-btn(href='/display') Back
  
     .container.mt-5
       .row.justify-content-center
@@ -23,4 +23,4 @@ html
                   input.title(type="text", name="title",placeholder="", required=true,autofocus)
                 .form-group.mb-3.d-none
                   textarea.content(type="text", name="content", placeholder="", required=true)
-                button.btn.btn-success.float-right(type="submit") 送信
+                button.custom-btn.float-right(type="submit") 送信

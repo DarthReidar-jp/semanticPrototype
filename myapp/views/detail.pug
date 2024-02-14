@@ -15,9 +15,9 @@ html
       .container.row
         // アクションボタン群
         .d-flex.justify-content-between.mt-4
-          a.btn.btn-success(href='/display') Back
+          a.custom-btn(href='/display') Back
           form(method="POST", action=`/detail/delete/${memo._id}`)
-            button.btn.btn-danger(type="submit") Delete
+            button.custom-btn(type="submit") Delete
         // 再エンベディングボタン
         //.d-flex.justify-content-end.mt-3
           form(method="POST", action=`/detail/reembed/${memo._id}`)
@@ -34,7 +34,7 @@ html
                   .form-group.mb-3
                     textarea.content(type="text", name="content",required=true)
                       |#{memo.content}
-                  button.btn.btn-success(type="submit") Update
+                  button.custom-btn(type="submit") Update
               
 
 

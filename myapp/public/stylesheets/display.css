@@ -1,31 +1,112 @@
-/* 基本的なリセットとフォント設定 */
-body, h1, h2, h3, p, form, input, button {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  /* ヘッダースタイル */
+/* ヘッダースタイル */
   header {
     background-color: #767676;
     color: #ffffff;
-    padding: 10px 0;
+    padding: 10px 10px;
     text-align: center;
+  }
+
+  .custom-btn{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin: 0.2rem;
+    padding: .2rem .2rem;
+    font-size: 0.75rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #3c3c3c;
+    border-color: #0b0b0b;
   }
   
   /* 検索フォームスタイル */
-  .search-form .form-control {
-    border-radius: 20px 0 0 20px;
+  .search-input-group{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+  }
+  .search-form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
     border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    outline: none;
   }
   
-  .search-form .btn-primary {
+
+  .search-form-control{
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+  }
+  .search-form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: none;
+    outline: 0;
+    box-shadow:none;
+  }
+  .search-form .btn-search {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #3c3c3c;
+    border-color: #0b0b0b;
     border-radius: 0 20px 20px 0;
     border-color: #3e3f3f;
     background-color: #9f9f9f;
     color: #ffffff;
+    position: relative;
+    z-index: 2;
   }
-  
+  .search-input-group-append{
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }  
+
   /* サイドバーのスタイル */
   .sidebar {
     background-color: #ababab;
@@ -36,6 +117,73 @@ body, h1, h2, h3, p, form, input, button {
     position: sticky;
     top: 20px;
   }
+
+  .import-group{
+    margin-bottom: 1rem;
+  }
+
+  .import-group .import-form {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    min-height: calc(1.5em + (.5rem + 2px));
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+  } 
+
+  .import-group .import-btn{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff;
+    background-color: #3c3c3c;
+    border-color: #0b0b0b;
+  }
+
+  .folder-group{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: .25rem;
+  }
+  .folder-group-item{
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+  }
   
   /* メインコンテンツのスタイル */
   .main-content {
@@ -43,35 +191,54 @@ body, h1, h2, h3, p, form, input, button {
   }
   
   /* カードスタイル */
-  .card {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  .memo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    box-shadow: 0 2px 4px rgba(151, 151, 151, 0.1);
     transition: 0.3s;
-    border-radius: 10px; /* カードの角を丸く */
+    height: 100%!important;
   }
   
-  .card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  .memo:hover {
+    box-shadow: 0 4px 8px rgba(143, 143, 143, 0.2);
   }
   
-  .card-body {
-    padding: 16px;
+  .memo-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
   }
   
-  .card-title {
-    font-size: 18px; /* タイトルのフォントサイズ */
-    margin-bottom: 15px; /* タイトルとテキストの間隔 */
+  .memo-title {
+    font-size: 1rem; /* タイトルのフォントサイズ */
+    margin-bottom: 1rem; /* タイトルとテキストの間隔 */
   }
   
-  .card-text {
-    font-size: 14px; /* テキストのフォントサイズ */
-    color: #333; /* テキストの色 */
+  .memo-content {
+    font-size: 0.8rem; /* テキストのフォントサイズ */
+    color: #636363; /* テキストの色 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5; /* 表示される最大行数を5行に設定 */
+    line-height: 1.7; /* 行の高さ */
+    /* max-heightは、line-heightと-webkit-line-clampの値を掛け合わせて計算 */
+    /* ここでは、1.7 * 5 = 8.5em となりますが、適宜調整してください */
+    max-height: 7em; /* line-height * line-clamp の値 */
+    margin: 0 auto; /* 中央揃えにするためのマージン */
   }
   
   /* スコア表示のスタイル */
-  .card-text.score {
+  .memo-content.score {
     font-weight: bold;
     color: #007bff; /* スコアの色 */
   }
   
-  /* 必要に応じて追加のスタイル */
   
