@@ -16,7 +16,7 @@ html
             h5.memo-title= memo.node.title
             p.memo-content= memo.node.content
             if memo.node.score
-              p.card-content.Score: #{memo.node.score.toFixed(5)}
+              p.memo-content.Score: #{memo.node.score.toFixed(5)}
             a.stretched-link(href=`/detail/${memo.node._id}`) 
 
       if memo.children && memo.children.length

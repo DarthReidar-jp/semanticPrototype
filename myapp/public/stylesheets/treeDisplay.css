@@ -12,3 +12,29 @@
   .level-3 { background-color: #fff3cd; margin-left: 90px; }
   .level-4 { background-color: #d3d3d3; margin-left: 120px; }
   
+  .main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* 階層コンテナ間の間隔 */
+}
+
+.level-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* メモカード間の間隔 */
+}
+
+.memo-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.memo-body {
+  margin-bottom: 10px;
+}
+
+.memo-score {
+  font-weight: bold;
+}

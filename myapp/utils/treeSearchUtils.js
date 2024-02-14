@@ -131,6 +131,10 @@ async function buildTree(node, ancestors, depth = 1) {
 }
 
 
+
+
+  
+
 // ベクトル検索に基づく系統樹構築を開始する関数
 async function performVectorSearchTree(query) {
     try {
@@ -144,5 +148,8 @@ async function performVectorSearchTree(query) {
         return null; // エラーが発生した場合はnullを返す
     }
 }
+
+
+
 
 module.exports = { performVectorSearchTree };
